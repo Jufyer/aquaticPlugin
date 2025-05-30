@@ -39,7 +39,7 @@ public class Shark extends net.minecraft.world.entity.animal.Dolphin {
     });*/
 
     this.setPosRaw(loc.getX(), loc.getY(), loc.getZ());
-    this.getBukkitEntity().getPersistentDataContainer().set(DOLPHIN_SHARK_KEY, PersistentDataType.BOOLEAN, true);
+    this.getBukkitEntity().getPersistentDataContainer().set(SHARK_KEY, PersistentDataType.BOOLEAN, true);
     this.setCustomName(Component.nullToEmpty("shark"));
     this.setCustomNameVisible(false);
     this.setInvulnerable(false);

@@ -17,8 +17,9 @@ java {
 }
 
 dependencies {
-  //paperweight.paperDevBundle("1.21.4-R0.1-SNAPSHOT")
+  //paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.21.5-R0.1-SNAPSHOT")
   paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.21.4-R0.1-20241215.095037-18")
+
 //  compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
 }
 
