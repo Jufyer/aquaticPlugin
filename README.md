@@ -2,6 +2,8 @@
 
 This Minecraft Plugin adds many features related to the Ocean to Minecraft. The plugin is completely inspired by a post on [`X`](https://x.com/home) by [`@Vitreous_Glassy`](https://x.com/Vitreous_Glassy). You can find the post [`here`](https://x.com/Vitreous_Glassy/status/1784074035615203770).
 
+If you have any ideas to make this plugin better you can share them with me [`here`](https://github.com/Jufyer/aquaticPlugin/discussions).
+
 ## Installation
 
 1. Install the plugin like any other Minecraft plugin.
