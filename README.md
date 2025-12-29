@@ -1,15 +1,20 @@
 # Aquatic Minecraft Plugin
 
+> [!WARNING]  
+> **This project is no longer under development.** This plugin is discontinued and will not receive any further updates, bug fixes, or support. The repository remains available for archival purposes and for anyone who wishes to use the existing code as a reference.
+
 This Minecraft Plugin adds many features related to the Ocean to Minecraft. The plugin is completely inspired by a post on [`X`](https://x.com/home) by [`@Vitreous_Glassy`](https://x.com/Vitreous_Glassy). You can find the post [`here`](https://x.com/Vitreous_Glassy/status/1784074035615203770).
+
+If you have any ideas to make this plugin better you can share them with me [`here`](https://github.com/Jufyer/aquaticPlugin/discussions).
 
 ## Installation
 
 1. Install the plugin like any other Minecraft plugin.
-2. After installation, you need to either use the provided resource pack yourself or set it as mandatory for the whole server. You can find the resource pack by going to the [`releases`](https://github.com/Jufyer/aquaticPlugin/releases) or on [`MediaFire`](https://www.mediafire.com/file/b5hbhxbay5jlw54/Aquatic+Resourcepack.rar/file).
+2. After installation, you need to either use the provided resource pack yourself or set it as mandatory for the whole server. You can find the resource pack by going to the [`releases`](https://github.com/Jufyer/aquaticPlugin/releases) or on [`MediaFire`](https://www.mediafire.com/file/b5hbhxbay5jlw54/Aquatic_Resourcepack.rar/file).
 3. To set it as mandatory, follow [`this tutorial`](https://www.youtube.com/watch?v=qCVPgn3IppU) by [`@KasaiSora`](https://www.youtube.com/@KasaiSora) on YouTube.
 4. You also need OptiFine. If you don't want to use OptiFine you can use these two mods: [`[ETF] Entity Texture Features`](https://modrinth.com/mod/entitytexturefeatures) and this one: [`[EMF] Entity Model Features`](https://modrinth.com/mod/entity-model-features).
 
-You can download the latest release [`here`](https://github.com/Jufyer/aquaticPlugin/releases).
+You can download the latest release [`here`](https://modrinth.com/plugin/aquatic-plugin/versions).
 
 ## Showcase
 
@@ -54,7 +59,7 @@ To craft the Ocean Glider you need to use following Recipie:
 The Nibbler is an aggressive mob wich spawns near the new Structure: "Prismarine Ocean Ruin". You can see this in the following image:
 <p align="center"><img src="https://imgur.com/bUSEL41.png"></p>
 
-You can also breed the Nibbler by using Dried Kelp. It looks like this: 
+You can also breed the Nibbler by using Dried Kelp. It looks like this:
 <p align="center"><img src="https://imgur.com/hRDFGTK.gif"></p>
 
 If you kill the Nibbler it drops a Prismarine Shard.
@@ -75,36 +80,36 @@ It breaks Blocks with a blast resistance <= 6. You can see this here:
 ## Oyster
 
 The Oyster is a new Block. But this block cant be broken so you cant get the Block. There a two variants:
-- Without a Pearl: 
+- Without a Pearl:
   - <p align="center"><img src="https://imgur.com/PT4vd79.png"></p>
-- And with a Pearl: 
+- And with a Pearl:
   - <p align="center"><img src="https://imgur.com/mXMZKrQ.png"></p>
-  
+
 If you shear an oyster it always drops a raw oyster. And if the oyster has a pearl it also drops it. It will look something like this:
 <p align="center"><img src="https://imgur.com/pdRJdfE.png"></p>
 
 If you eat the Oyster raw you will get nausea but if you cook it you will get a good food source. You can cook it in the furnace like any other food like this:
 <p align="center"><img src="https://imgur.com/9aNDFPF.png"></p>
 
-And if you get the Pearl you can brew a potion of Luck with it. You can to it like that: 
+And if you get the Pearl you can brew a potion of Luck with it. You can to it like that:
 
 <p align="center"><img src="https://imgur.com/CQhJfkG.png"></p>
 
 <p align="center"><img src="https://imgur.com/NyFEja6.png"></p>
 
 <p align="center"><img src="https://imgur.com/w28EmwU.png"></p>
-  
+
 ## Boat Banners
 
-If you shift-right-click a boat with a banner in your hand you can place the banner in the boat. It will look like this: 
+If you shift-right-click a boat with a banner in your hand you can place the banner in the boat. It will look like this:
 
 <p align="center"><img src="https://imgur.com/xUyvEmg.png"></p>
 
-But if you do that there can only be one Player in the boat. So it basically takes up one place in the boat. You can also get the banner by back shift-right-clicking again. 
+But if you do that there can only be one Player in the boat. So it basically takes up one place in the boat. You can also get the banner by back shift-right-clicking again.
 
 ## Goldfish
 
-The Goldfish is a new mob without any functionality. It is just there for the looks and spawns together with tropical fish. You can see it here: 
+The Goldfish is a new mob without any functionality. It is just there for the looks and spawns together with tropical fish. You can see it here:
 
 <p align="center"><img src="https://imgur.com/bmBvdJc.png"></p>
 
@@ -116,6 +121,7 @@ The Debug Mode includes the following Commands:
 2. spawnNibbler
 3. spawnGoldfish
 4. spawnWhale
+5. spawnOyster
 
 You need to activate it in the config file. Only OP's can use these Commands!
 

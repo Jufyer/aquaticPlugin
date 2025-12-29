@@ -53,6 +53,13 @@ import static org.jufyer.plugin.aquatic.oyster.listener.OysterListeners.COOKED_O
 import static org.jufyer.plugin.aquatic.oyster.listener.OysterListeners.RAW_OYSTER_KEY;
 
 public final class Main extends JavaPlugin implements Listener {
+
+  /*
+  Tested versions:
+    -
+
+   */
+
   private File customConfigFile;
   private FileConfiguration customConfig;
 
