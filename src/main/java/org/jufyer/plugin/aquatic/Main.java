@@ -112,6 +112,7 @@ public final class Main extends JavaPlugin implements Listener {
     return instance;
   }
 
+
   @Override
   public void onEnable() {
     instance = this;
