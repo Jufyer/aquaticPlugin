@@ -1,0 +1,57 @@
+package org.jufyer.plugin.aquatic.recpies.impl.domains.ingredients;
+
+import org.bukkit.Material;
+import org.bukkit.Tag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.RecipeChoice;
+import org.jufyer.plugin.aquatic.recpies.api.domains.Ingredient;
+
+/**
+ * This class represents an ingredient that is a tag
+ */
+public class TagIngredient extends Ingredient {
+
+    /**
+     * The tag of the ingredient
+     */
+    private final Tag<Material> tag;
+
+    /**
+     * Create a new TagIngredient
+     * @param tag The tag of the ingredient
+     * @param sign The sign of the ingredient
+     */
+    public TagIngredient(Tag<Material> tag, Character sign) {
+        super(sign);
+        this.tag = tag;
+    }
+
+    /**
+     * Create a new TagIngredient
+     * @param tag The tag of the ingredient
+     */
+    public TagIngredient(Tag<Material> tag) {
+        this(tag, null);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean isSimilar(ItemStack item) {
+        return this.tag.isTagged(item.getType());
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public RecipeChoice choice() {
+        return new RecipeChoice.MaterialChoice(this.tag);
+    }
+
+    @Override
+    public String toString() {
+        return this.tag.getKey().toString();
+    }
+}

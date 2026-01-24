@@ -1,8 +1,5 @@
 # Aquatic Minecraft Plugin
 
-> [!WARNING]  
-> **This project is no longer under development.** This plugin is discontinued and will not receive any further updates, bug fixes, or support. The repository remains available for archival purposes and for anyone who wishes to use the existing code as a reference.
-
 This Minecraft Plugin adds many features related to the Ocean to Minecraft. The plugin is completely inspired by a post on [`X`](https://x.com/home) by [`@Vitreous_Glassy`](https://x.com/Vitreous_Glassy). You can find the post [`here`](https://x.com/Vitreous_Glassy/status/1784074035615203770).
 
 If you have any ideas to make this plugin better you can share them with me [`here`](https://github.com/Jufyer/aquaticPlugin/discussions).
@@ -10,9 +7,7 @@ If you have any ideas to make this plugin better you can share them with me [`he
 ## Installation
 
 1. Install the plugin like any other Minecraft plugin.
-2. After installation, you need to either use the provided resource pack yourself or set it as mandatory for the whole server. You can find the resource pack by going to the [`releases`](https://github.com/Jufyer/aquaticPlugin/releases) or on [`MediaFire`](https://www.mediafire.com/file/b5hbhxbay5jlw54/Aquatic_Resourcepack.rar/file).
-3. To set it as mandatory, follow [`this tutorial`](https://www.youtube.com/watch?v=qCVPgn3IppU) by [`@KasaiSora`](https://www.youtube.com/@KasaiSora) on YouTube.
-4. You also need OptiFine. If you don't want to use OptiFine you can use these two mods: [`[ETF] Entity Texture Features`](https://modrinth.com/mod/entitytexturefeatures) and this one: [`[EMF] Entity Model Features`](https://modrinth.com/mod/entity-model-features).
+2. You also need OptiFine. If you don't want to use OptiFine you can use these two mods: [`[ETF] Entity Texture Features`](https://modrinth.com/mod/entitytexturefeatures) and this one: [`[EMF] Entity Model Features`](https://modrinth.com/mod/entity-model-features).
 
 You can download the latest release [`here`](https://modrinth.com/plugin/aquatic-plugin/versions).
 

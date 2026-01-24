@@ -2,7 +2,7 @@ package org.jufyer.plugin.aquatic.goldfish.entity;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.Salmon;
+import net.minecraft.world.entity.animal.fish.Salmon;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

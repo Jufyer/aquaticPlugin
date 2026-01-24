@@ -38,6 +38,10 @@ import org.jufyer.plugin.aquatic.oyster.listener.OysterListeners;
 import org.jufyer.plugin.aquatic.oyster.listener.PotionOfLuckListeners;
 import org.jufyer.plugin.aquatic.prismarineOceanRuin.GeneratePrismarineOceanRuin;
 import org.jufyer.plugin.aquatic.oceanGlider.entity.listeners.OceanGliderListeners;
+import org.jufyer.plugin.aquatic.recpies.api.RecipeType;
+import org.jufyer.plugin.aquatic.recpies.api.RecipesAPI;
+import org.jufyer.plugin.aquatic.recpies.impl.domains.ItemRecipe;
+import org.jufyer.plugin.aquatic.recpies.impl.domains.recipes.RecipeBuilder;
 import org.jufyer.plugin.aquatic.shark.entity.Shark;
 import org.jufyer.plugin.aquatic.shark.listeners.SharkListeners;
 import org.jufyer.plugin.aquatic.spikyPiston.listeners.SpikyPistonListeners;
@@ -113,6 +117,8 @@ public final class Main extends JavaPlugin implements Listener {
     instance = this;
     saveDefaultConfig();
     createCustomConfig();
+    RecipesAPI recipesAPI = new RecipesAPI(Main.getInstance(), false);
+    Bukkit.getPluginManager().registerEvents(new ResourcePackListeners(), this);
 
     getLogger().info("The following features are enabled: ");
 
@@ -143,14 +149,27 @@ public final class Main extends JavaPlugin implements Listener {
       OceanGlidermeta.setDisplayName("§rOcean Glider");
       oceanGlider.setItemMeta(OceanGlidermeta);
 
-      ShapedRecipe OceanGlider = new ShapedRecipe(oceanGlider);
-      OceanGlider.shape("N N", "PPP", "NHN");
+      ItemRecipe oceanGliderRecipe = new RecipeBuilder()
+        .setType(RecipeType.CRAFTING_SHAPED)
+        .setName("ocean_glider")
+        .setResult(oceanGlider)
+        .setAmount(1)
+        .setPattern("N N", "PPP", "NHN")
+        .addIngredient(Material.NAUTILUS_SHELL, 'N')
+        .addIngredient(Material.PRISMARINE_SHARD, 'P')
+        .addIngredient(Material.HEART_OF_THE_SEA,'H')
+        .build();
 
-      OceanGlider.setIngredient('N', Material.NAUTILUS_SHELL);
-      OceanGlider.setIngredient('P', Material.PRISMARINE_SHARD);
-      OceanGlider.setIngredient('H', Material.HEART_OF_THE_SEA);
+      recipesAPI.addRecipe(oceanGliderRecipe);
 
-      getServer().addRecipe(OceanGlider);
+//      ShapedRecipe OceanGlider = new ShapedRecipe(oceanGlider);
+//      OceanGlider.shape("N N", "PPP", "NHN");
+//
+//      OceanGlider.setIngredient('N', Material.NAUTILUS_SHELL);
+//      OceanGlider.setIngredient('P', Material.PRISMARINE_SHARD);
+//      OceanGlider.setIngredient('H', Material.HEART_OF_THE_SEA);
+//
+//      getServer().addRecipe(OceanGlider);
     }
     if (getCustomConfig().getBoolean("Oysters")){
       getLogger().info("Oysters");
@@ -173,7 +192,18 @@ public final class Main extends JavaPlugin implements Listener {
       cookedOysterItemMeta.getPersistentDataContainer().set(COOKED_OYSTER_KEY, PersistentDataType.BYTE, (byte) 1);
       cooked_oyster.setItemMeta(cookedOysterItemMeta);
 
-      getServer().addRecipe(new FurnaceRecipe(cooked_oyster, raw_oyster.getType()));
+      //getServer().addRecipe(new FurnaceRecipe(cooked_oyster, raw_oyster.getType()));
+
+      ItemRecipe oysterFurnace = new RecipeBuilder()
+        .setType(RecipeType.SMELTING)
+        .setName("oyster_to_cooked_oyster")
+        .setResult(cooked_oyster)
+        .setAmount(1)
+        .addIngredient(raw_oyster.getType())
+        .setCookingTime(200)
+        .build();
+
+      recipesAPI.addRecipe(oysterFurnace);
 
       addBrewingRecipe();
     }
@@ -195,13 +225,25 @@ public final class Main extends JavaPlugin implements Listener {
       SpikyPistonMeta.setCustomModelData(CMDSpikyPistonItem);
       spikyPiston.setItemMeta(SpikyPistonMeta);
 
-      ShapedRecipe SpikyPiston = new ShapedRecipe(spikyPiston);
-      SpikyPiston.shape("TTT", "TPT", "   ");
+      ItemRecipe spikyPistonRecipe = new RecipeBuilder()
+        .setType(RecipeType.CRAFTING_SHAPED)
+        .setName("spiky_piston")
+        .setResult(spikyPiston)
+        .setAmount(1)
+        .setPattern("TTT", "TPT", "   ")
+        .addIngredient(sharkTooth, 'T')
+        .addIngredient(Material.PISTON, 'P')
+        .build();
 
-      SpikyPiston.setIngredient('T', new RecipeChoice.ExactChoice(sharkTooth)); // Custom Item
-      SpikyPiston.setIngredient('P', Material.PISTON);
+      recipesAPI.addRecipe(spikyPistonRecipe);
 
-      getServer().addRecipe(SpikyPiston);
+//      ShapedRecipe SpikyPiston = new ShapedRecipe(spikyPiston);
+//      SpikyPiston.shape("TTT", "TPT", "   ");
+//
+//      SpikyPiston.setIngredient('T', new RecipeChoice.ExactChoice(sharkTooth)); // Custom Item
+//      SpikyPiston.setIngredient('P', Material.PISTON);
+//
+//      getServer().addRecipe(SpikyPiston);
     }
     if (getCustomConfig().getBoolean("Whales")){
       getLogger().info("Whales");
@@ -226,14 +268,27 @@ public final class Main extends JavaPlugin implements Listener {
       Bmeta.setCustomModelData(CMDBarnacle);
       Barnacle.setItemMeta(Bmeta);
 
-      ShapedRecipe barnacles_spike = new ShapedRecipe(Barnacles);
-      barnacles_spike.shape(" B ", "BIB", " R ");
+      ItemRecipe barnaclesSpikeRecipe = new RecipeBuilder()
+        .setType(RecipeType.CRAFTING_SHAPED)
+        .setName("barnacles_spike")
+        .setResult(Barnacles)
+        .setAmount(1)
+        .setPattern(" B ", "BIB", " R ")
+        .addIngredient(Barnacle, 'B')
+        .addIngredient(Material.IRON_INGOT, 'I')
+        .addIngredient(Material.REDSTONE, 'R')
+        .build();
 
-      barnacles_spike.setIngredient('B', new RecipeChoice.ExactChoice(Barnacle)); // Custom Item
-      barnacles_spike.setIngredient('I', Material.IRON_INGOT);
-      barnacles_spike.setIngredient('R', Material.REDSTONE);
+      recipesAPI.addRecipe(barnaclesSpikeRecipe);
 
-      getServer().addRecipe(barnacles_spike);
+//      ShapedRecipe barnacles_spike = new ShapedRecipe(Barnacles);
+//      barnacles_spike.shape(" B ", "BIB", " R ");
+//
+//      barnacles_spike.setIngredient('B', new RecipeChoice.ExactChoice(Barnacle)); // Custom Item
+//      barnacles_spike.setIngredient('I', Material.IRON_INGOT);
+//      barnacles_spike.setIngredient('R', Material.REDSTONE);
+//
+//      getServer().addRecipe(barnacles_spike);
     }
     if (getCustomConfig().getBoolean("Debug")){
       getLogger().info("Debug mode on!");

@@ -7,7 +7,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.animal.Dolphin;
+import net.minecraft.world.entity.animal.dolphin.Dolphin;
 import net.minecraft.world.entity.monster.Guardian;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
@@ -22,7 +22,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.jufyer.plugin.aquatic.Main;
 
-public class Whale extends Dolphin {
+public class Whale extends net.minecraft.world.entity.animal.dolphin.Dolphin {
 
   public static final NamespacedKey WHALE_KEY = new NamespacedKey(Main.getInstance(), "Whale");
   public static final NamespacedKey DOLPHIN_WHALE_KEY = new NamespacedKey(Main.getInstance(), "DOLPHIN_WHALE");
@@ -59,10 +59,6 @@ public class Whale extends Dolphin {
     //this.getBukkitEntity().addPassenger(armorStand);
   }
 
-  @Override
-  public void setTreasurePos(BlockPos treasurePos) {
-
-  }
 
   @Override
   public boolean gotFish() {
@@ -112,7 +108,7 @@ public class Whale extends Dolphin {
       armorStand.setRotation(sharkLoc.getYaw(), sharkLoc.getPitch());
     }
 
-    if (!this.isInWaterRainOrBubble()) {
+    if (!this.isInWaterOrRain()) {
       this.setMoisntessLevel(this.getMoistnessLevel() - 1);
       if (this.getMoistnessLevel() <= 0) {
         this.hurt(this.damageSources().dryOut(), 1.0F);
@@ -123,10 +119,10 @@ public class Whale extends Dolphin {
       this.setDeltaMovement(this.getDeltaMovement().add((double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F), 0.5D, (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F)));
       this.setYRot(this.random.nextFloat() * 360.0F);
       this.setOnGround(false);
-      this.hasImpulse = true;
+      //this.hasImpulse = true;
     }
 
-    if (this.level().isClientSide && this.isInWater() && this.getDeltaMovement().lengthSqr() > 0.03D) {
+    if (this.level().isClientSide() && this.isInWater() && this.getDeltaMovement().lengthSqr() > 0.03D) {
       Vec3 vec3d = this.getViewVector(0.0F);
       float f = Mth.cos(this.getYRot() * 0.017453292F) * 0.3F;
       float f1 = Mth.sin(this.getYRot() * 0.017453292F) * 0.3F;

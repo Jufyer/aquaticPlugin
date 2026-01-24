@@ -6,8 +6,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.Cod;
-import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.animal.fish.Cod;
+import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.player.Player;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
@@ -18,7 +18,7 @@ import org.jufyer.plugin.aquatic.Main;
 
 import java.util.List;
 
-public class Nibbler extends Cod {
+public class Nibbler extends net.minecraft.world.entity.animal.fish.Cod {
 
   public static final NamespacedKey NIBBLER_KEY = new NamespacedKey(Main.getInstance(), "Nibbler");
 

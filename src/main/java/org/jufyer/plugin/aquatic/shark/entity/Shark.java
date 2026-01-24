@@ -7,6 +7,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.animal.dolphin.Dolphin;
 import net.minecraft.world.entity.monster.Guardian;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
@@ -20,7 +21,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.jufyer.plugin.aquatic.Main;
 
-public class Shark extends net.minecraft.world.entity.animal.Dolphin {
+public class Shark extends Dolphin {
 
   public static final NamespacedKey SHARK_KEY = new NamespacedKey(Main.getInstance(), "SHARK");
   public static final NamespacedKey DOLPHIN_SHARK_KEY = new NamespacedKey(Main.getInstance(), "DOLPHIN_SHARK");
@@ -48,10 +49,6 @@ public class Shark extends net.minecraft.world.entity.animal.Dolphin {
     ((CraftWorld) loc.getWorld()).getHandle().addFreshEntity(this, CreatureSpawnEvent.SpawnReason.CUSTOM);
 
    // this.getBukkitEntity().addPassenger(armorStand);
-  }
-
-  @Override
-  public void setTreasurePos(BlockPos treasurePos) {
   }
 
   @Override
@@ -94,7 +91,7 @@ public class Shark extends net.minecraft.world.entity.animal.Dolphin {
       armorStand.setRotation(sharkLoc.getYaw(), sharkLoc.getPitch());
     }
 
-    if (!this.isInWaterRainOrBubble()) {
+    if (!this.isInWaterOrRain()) {
       this.setMoisntessLevel(this.getMoistnessLevel() - 1);
       if (this.getMoistnessLevel() <= 0) {
         this.hurt(this.damageSources().dryOut(), 1.0F);
@@ -105,10 +102,10 @@ public class Shark extends net.minecraft.world.entity.animal.Dolphin {
       this.setDeltaMovement(this.getDeltaMovement().add((double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F), 0.5D, (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F)));
       this.setYRot(this.random.nextFloat() * 360.0F);
       this.setOnGround(false);
-      this.hasImpulse = true;
+      //this.hasImpulse = true;
     }
 
-    if (this.level().isClientSide && this.isInWater() && this.getDeltaMovement().lengthSqr() > 0.03D) {
+    if (this.level().isClientSide() && this.isInWater() && this.getDeltaMovement().lengthSqr() > 0.03D) {
       Vec3 vec3d = this.getViewVector(0.0F);
       float f = Mth.cos(this.getYRot() * 0.017453292F) * 0.3F;
       float f1 = Mth.sin(this.getYRot() * 0.017453292F) * 0.3F;
