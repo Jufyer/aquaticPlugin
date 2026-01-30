@@ -121,6 +121,9 @@ public final class Main extends JavaPlugin implements Listener {
     RecipesAPI recipesAPI = new RecipesAPI(Main.getInstance(), false);
     Bukkit.getPluginManager().registerEvents(new ResourcePackListeners(), this);
 
+    int pluginId = 29171;
+    Metrics metrics = new Metrics(this, pluginId);
+
     getLogger().info("The following features are enabled: ");
 
     if (getCustomConfig().getBoolean("Banners on boats")){
